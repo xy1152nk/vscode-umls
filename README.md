@@ -1,0 +1,2 @@
+# vscode-umls
+SCLPROJECT_PLANTUMLCODES
