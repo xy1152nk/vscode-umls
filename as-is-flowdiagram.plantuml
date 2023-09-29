@@ -1,0 +1,27 @@
+ @startuml SCL PROJECT
+
+title Employee Lunch at Canteen Ordering System
+
+actor "Employee Desk" as Emp
+participant "Canteen" as Canteen
+participant "kitchen" as Kitchen
+
+skinparam Style strictuml 
+group Step 1: Constraint- Employee returns without food
+Emp ++ 
+Emp --> Canteen ++ : Leaves for lunch(10 min)\ncanteen is full/long queue\nor no food
+
+Emp <-- Canteen --: Returns back to desk(10 min)
+Emp --
+end 
+
+group Step 2: Constraints with- Employees ordering food.
+Emp -> Canteen ++ : Leaves for lunch(10 min)\nPlaces order
+Canteen -> Table ++: Sits at the open table
+Table -->Table : limitedseats
+Kitchen --> Table : Food prep\n(25min)
+Canteen --
+Emp <-- Table -- : Takes 10 minutes
+end
+
+@enduml
